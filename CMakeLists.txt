@@ -9,8 +9,13 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_executable(minecraft
     src/app.cpp
     src/buffer.cpp
+    src/camera.cpp
+    src/input.cpp
     src/main.cpp
+    src/mesh.cpp
+    src/renderer.cpp
     src/shader.cpp
+    src/window.cpp
 )
 
 find_package(OpenGL REQUIRED)
