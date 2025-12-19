@@ -1,0 +1,3 @@
+C:/Users/16002/Desktop/Minecraft/build/CMakeFiles/minecraft.dir
+C:/Users/16002/Desktop/Minecraft/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/16002/Desktop/Minecraft/build/CMakeFiles/ZERO_CHECK.dir

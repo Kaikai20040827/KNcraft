@@ -1,0 +1,10 @@
+^C:\USERS\16002\DESKTOP\MINECRAFT\LIBS\GLM\GLM\CMAKELISTS.TXT
+setlocal
+C:\Users\16002\anaconda3\Library\bin\cmake.exe -SC:/Users/16002/Desktop/Minecraft -BC:/Users/16002/Desktop/Minecraft/build --check-stamp-file C:/Users/16002/Desktop/Minecraft/build/libs/glm/glm/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
