@@ -7,6 +7,7 @@
 #include "shader.h"
 #include "mesh.h"
 #include "renderer.h"
+#include "chunk_manager.h"
 #include "input.h"
 
 class Minecraft
@@ -33,7 +34,7 @@ private:
     Window *window;
     Shader *shader;
     Camera *camera;
-    CubeMesh *cube;
+    ChunkManager *chunkManager;
     Renderer *renderer;
     InputManager *inputManager;
 

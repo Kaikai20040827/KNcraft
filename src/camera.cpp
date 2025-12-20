@@ -48,4 +48,5 @@ void Camera::processKeyboard(
         position += speed * up;
     if (shift)
         position -= speed * up;
+    
 }

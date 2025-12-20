@@ -3,7 +3,7 @@
 
 Minecraft::Minecraft()
     : window(nullptr), shader(nullptr), camera(nullptr),
-      cube(nullptr), renderer(nullptr), inputManager(nullptr),
+      chunkManager(nullptr), renderer(nullptr), inputManager(nullptr),
       deltaTime(0.0f), lastFrame(0.0f)
 {
 }
@@ -49,10 +49,11 @@ void main()
     const char *fragmentSrc = R"GLSL(
 #version 330 core
 out vec4 FragColor;
+uniform vec4 uColor;
 
 void main()
 {
-    FragColor = vec4(vec3(0.7), 1.0);
+    FragColor = uColor;
 }
 )GLSL";
 
@@ -62,10 +63,11 @@ void main()
     camera = new Camera();
 
     // Initialize cube mesh
-    cube = new CubeMesh();
+    // Initialize chunk manager (handles creating per-chunk meshes)
+    chunkManager = new ChunkManager();
 
     // Initialize renderer
-    renderer = new Renderer(shader, cube);
+    renderer = new Renderer(shader);
     renderer->setClearColor(0.5f, 0.5f, 0.5f, 1.0f);
 
     // Initialize input manager
@@ -105,8 +107,9 @@ void Minecraft::handleInput()
 
 void Minecraft::update(float deltaTime)
 {
-    // Update logic here (currently just camera updates)
-    // Could add animations, physics, etc.
+    // Update chunks around player
+    if (chunkManager && camera)
+        chunkManager->update(camera->position);
 }
 
 void Minecraft::render()
@@ -121,15 +124,16 @@ void Minecraft::render()
         0.1f,
         100.0f);
 
-    // Render scene
-    renderer->render(view, projection);
+    // Get chunk meshes and render scene
+    std::vector<ChunkMesh *> meshes = chunkManager->getMeshes();
+    renderer->render(view, projection, meshes);
 }
 
 void Minecraft::cleanup()
 {
     delete renderer;
     delete inputManager;
-    delete cube;
+    delete chunkManager;
     delete shader;
     delete camera;
     delete window;

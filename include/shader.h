@@ -4,19 +4,21 @@
 #include <string>
 #include <glm/glm.hpp>
 
-class Shader {
+class Shader
+{
 public:
-    Shader(const char* vertexSrc, const char* fragmentSrc);
+    Shader(const char *vertexSrc, const char *fragmentSrc);
     ~Shader();
 
     void use() const;
 
-    void setMat4(const std::string& name, const glm::mat4& mat) const;
+    void setMat4(const std::string &name, const glm::mat4 &mat) const;
+    void setVec4(const std::string &name, const glm::vec4 &vec) const;
 
 private:
     unsigned int programID;
 
-    unsigned int compile(unsigned int type, const char* src);
+    unsigned int compile(unsigned int type, const char *src);
 };
 
 #endif

@@ -3,22 +3,24 @@
 
 #include <glm/glm.hpp>
 
-class Shader;
-class CubeMesh;
+#include "shader.h"
+#include "mesh.h"
+#include <vector>
 
 class Renderer
 {
 public:
-    Renderer(Shader *shader, CubeMesh *mesh);
+    Renderer(Shader *shader);
     ~Renderer();
 
-    void render(const glm::mat4 &view, const glm::mat4 &projection);
+    void render(const glm::mat4 &view, const glm::mat4 &projection,
+                const std::vector<ChunkMesh *> &meshes);
     void clear();
     void setClearColor(float r, float g, float b, float a);
 
 private:
     Shader *shader;
-    CubeMesh *mesh;
+    ChunkMesh *mesh;
     glm::mat4 model;
 };
 

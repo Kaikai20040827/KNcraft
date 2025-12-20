@@ -372,6 +372,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\16002\Desktop\Minecraft\src\mesh.cpp" />
     <ClCompile Include="C:\Users\16002\Desktop\Minecraft\src\renderer.cpp" />
     <ClCompile Include="C:\Users\16002\Desktop\Minecraft\src\shader.cpp" />
+    <ClCompile Include="C:\Users\16002\Desktop\Minecraft\src\chunk.cpp" />
+    <ClCompile Include="C:\Users\16002\Desktop\Minecraft\src\chunk_manager.cpp" />
     <ClCompile Include="C:\Users\16002\Desktop\Minecraft\src\window.cpp" />
   </ItemGroup>
   <ItemGroup />

@@ -15,6 +15,8 @@ add_executable(minecraft
     src/mesh.cpp
     src/renderer.cpp
     src/shader.cpp
+    src/chunk.cpp
+    src/chunk_manager.cpp
     src/window.cpp
 )
 
