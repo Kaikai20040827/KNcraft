@@ -60,7 +60,8 @@ const float vertices[108] = {
     0.5f, -0.5f, -0.5f   // 下面 右后
 };
 
-ChunkMesh::ChunkMesh()
+ChunkMesh::ChunkMesh(Texture&& texture)
+:texture(std::move(texture))
 {
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);

@@ -15,6 +15,8 @@ add_executable(minecraft
     src/mesh.cpp
     src/renderer.cpp
     src/shader.cpp
+    src/texture.cpp
+    src/stb_image.cpp
     src/chunk.cpp
     src/chunk_manager.cpp
     src/window.cpp
@@ -27,6 +29,7 @@ target_include_directories(minecraft PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/glfw/include
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/glew/include
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/glm
+    ${CMAKE_CURRENT_SOURCE_DIR}/libs/stb
 )
 
 # Prefer static libraries (glew32s, glfw static) to avoid runtime DLL dependency.

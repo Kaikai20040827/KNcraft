@@ -25,6 +25,12 @@
     <ClCompile Include="C:\Users\16002\Desktop\Minecraft\src\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\16002\Desktop\Minecraft\src\texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\16002\Desktop\Minecraft\src\stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\16002\Desktop\Minecraft\src\chunk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

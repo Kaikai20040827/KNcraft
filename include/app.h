@@ -37,6 +37,7 @@ private:
     ChunkManager *chunkManager;
     Renderer *renderer;
     InputManager *inputManager;
+    Texture* block;
 
     // Timing
     float deltaTime, lastFrame;

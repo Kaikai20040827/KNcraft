@@ -5,22 +5,39 @@
 #include <GL/glew.h>
 
 Renderer::Renderer(Shader *shader)
-    : shader(shader), model(glm::mat4(1.0f))
+    : shader(shader), model(glm::mat4(1.0f)), block(nullptr)
 {
 }
 
+// Shader and mesh are owned elsewhere
+
+// ensure we clean up allocated texture
+// (destructor should be safe if block==nullptr)
 Renderer::~Renderer()
 {
-    // Shader and mesh are owned elsewhere
+    if (block)
+        delete block;
 }
 
 void Renderer::render(const glm::mat4 &view, const glm::mat4 &projection,
-                      const std::vector<ChunkMesh *> &meshes)
+                      const std::vector<ChunkMesh *> &meshes,
+                      const std::string &top_path,
+                      const std::string &bottom_path,
+                      const std::string &front_path,
+                      const std::string &back_path,
+                      const std::string &left_path,
+                      const std::string &right_path)
 {
+    if (block)
+        delete block;
+    block = new Texture(top_path, bottom_path, front_path, back_path, left_path, right_path);
+
     shader->use();
     shader->setMat4("model", model);
     shader->setMat4("view", view);
     shader->setMat4("projection", projection);
+    // ensure sampler uses texture unit 0
+    shader->setInt("uTexture", 0);
 
     // First pass: filled cubes with base color
     shader->setVec4("uColor", glm::vec4(0.7f, 0.7f, 0.7f, 1.0f));
@@ -28,7 +45,10 @@ void Renderer::render(const glm::mat4 &view, const glm::mat4 &projection,
     for (const auto &m : meshes)
     {
         if (m)
+        {
+            block->bind(0);
             m->draw();
+        }
     }
 
     // Second pass: thin black outlines
@@ -40,7 +60,10 @@ void Renderer::render(const glm::mat4 &view, const glm::mat4 &projection,
     for (const auto &m : meshes)
     {
         if (m)
+        {
+            block->bind(0);
             m->draw();
+        }
     }
     // restore
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);

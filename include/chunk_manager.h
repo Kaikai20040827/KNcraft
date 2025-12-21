@@ -9,6 +9,7 @@
 
 #include "chunk.h"
 #include "mesh.h"
+#include "texture.h"
 
 class ChunkManager
 {

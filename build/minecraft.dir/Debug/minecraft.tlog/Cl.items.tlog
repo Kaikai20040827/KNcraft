@@ -6,6 +6,8 @@ C:\Users\16002\Desktop\Minecraft\src\main.cpp;C:\Users\16002\Desktop\Minecraft\b
 C:\Users\16002\Desktop\Minecraft\src\mesh.cpp;C:\Users\16002\Desktop\Minecraft\build\minecraft.dir\Debug\mesh.obj
 C:\Users\16002\Desktop\Minecraft\src\renderer.cpp;C:\Users\16002\Desktop\Minecraft\build\minecraft.dir\Debug\renderer.obj
 C:\Users\16002\Desktop\Minecraft\src\shader.cpp;C:\Users\16002\Desktop\Minecraft\build\minecraft.dir\Debug\shader.obj
+C:\Users\16002\Desktop\Minecraft\src\texture.cpp;C:\Users\16002\Desktop\Minecraft\build\minecraft.dir\Debug\texture.obj
+C:\Users\16002\Desktop\Minecraft\src\stb_image.cpp;C:\Users\16002\Desktop\Minecraft\build\minecraft.dir\Debug\stb_image.obj
 C:\Users\16002\Desktop\Minecraft\src\chunk.cpp;C:\Users\16002\Desktop\Minecraft\build\minecraft.dir\Debug\chunk.obj
 C:\Users\16002\Desktop\Minecraft\src\chunk_manager.cpp;C:\Users\16002\Desktop\Minecraft\build\minecraft.dir\Debug\chunk_manager.obj
 C:\Users\16002\Desktop\Minecraft\src\window.cpp;C:\Users\16002\Desktop\Minecraft\build\minecraft.dir\Debug\window.obj

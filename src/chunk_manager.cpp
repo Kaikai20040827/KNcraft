@@ -25,8 +25,10 @@ void ChunkManager::update(const glm::vec3 &playerPosition)
     // Required coords: center and 4 neighbors (N,S,E,W)
     std::set<std::pair<int, int>> required;
 
-    for(int i=1; i <= 8; i++) {
-        for (int j=1; j <= 8; j++) {
+    for (int i = 1; i <= 8; i++)
+    {
+        for (int j = 1; j <= 8; j++)
+        {
             required.emplace(cx + i - 4, cz + j - 4);
         }
     }
@@ -43,7 +45,14 @@ void ChunkManager::update(const glm::vec3 &playerPosition)
 
             e.chunk.generate(center);
             std::vector<float> vb = e.chunk.buildVertexBuffer();
-            e.mesh = new ChunkMesh();
+
+            Texture grass = {"../../textures/grass/grass-side.png",
+                        "../../textures/grass/grass-side.png",
+                        "../../textures/grass/grass-up.png",
+                        "../../textures/grass/grass-down.png",
+                        "../../textures/grass/grass-side.png",
+                        "../../textures/grass/grass-side.png"};
+            e.mesh = new ChunkMesh(std::move(grass));
             e.mesh->build(vb);
 
             entries.emplace(coord, std::move(e));
