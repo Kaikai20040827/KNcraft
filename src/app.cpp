@@ -12,7 +12,7 @@ App::~App()
 void App::run()
 {
     LOG("Initializing a new window...");
-    window.init(WINDOW, name);
+    window.init(BORDERLESS, name);
     LOG("Initializing done");
 
     LOG("Initializing GLEW...");
@@ -33,7 +33,7 @@ void App::run()
     glfwSwapInterval(1);
 
     // darker background for better visibility of green points
-    GLCall(glClearColor(0.05f, 0.05f, 0.05f, 1.0f));
+    GLCall(glClearColor(1.0f, 0.6f, 1.0f, 1.0f));
 
     mainloop();
 }
@@ -46,7 +46,8 @@ void App::initGlew()
         glfwTerminate();
         exit(-1);
     }
-    std::cout << "<========== OpenGL: " << glGetString(GL_VERSION) << " ==========>" << std::endl;
+    GLCall(const GLubyte *version = glGetString(GL_VERSION));
+    std::cout << "<========== OpenGL: " << version << " ==========>" << '\n';
 
     int width, height;
     GLCall(glfwGetFramebufferSize(window.window, &width, &height));

@@ -37,22 +37,25 @@ void Window::init(VideoMode videoMode, const char *title)
         LOG("Video mode: BORDERLESS");
         videoMode = BORDERLESS;
 
+        glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+        
         moniter = glfwGetPrimaryMonitor();
         mode = glfwGetVideoMode(moniter);
 
         LOG("Creating a new borderless window...");
         window = glfwCreateWindow(
-                   mode->width,
-                   mode->height,
-                   this->title,
-                   nullptr,
-                   nullptr);
+            mode->width,
+            mode->height,
+            this->title,
+            nullptr,
+            nullptr);
         ASSERT(window);
         LOG("Creating a new borderless window done");
 
         glfwSetWindowPos(window, 0, 0);
 
-            break;
+        break;
     case WINDOW:
         LOG("Video mode: WINDOW");
         videoMode = WINDOW;
@@ -62,11 +65,11 @@ void Window::init(VideoMode videoMode, const char *title)
 
         LOG("Creating a new window...");
         window = glfwCreateWindow(
-                   1280,
-                   720,
-                   this->title,
-                   nullptr,
-                   nullptr);
+            1280,
+            720,
+            this->title,
+            nullptr,
+            nullptr);
         LOG("Setting window position in center...");
         glfwSetWindowPos(window, 320, 180);
         LOG("Setting window position in center done");

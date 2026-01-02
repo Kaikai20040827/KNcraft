@@ -9,7 +9,7 @@
 
 #include "debug.h"
 
-typedef enum VideoMode
+enum VideoMode
 {
     FULLSCREEN,
     BORDERLESS,

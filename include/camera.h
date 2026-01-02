@@ -69,6 +69,9 @@ public:
     float standHeight;
     float crouchHeight;
 
+private: 
+    void screenShake(bool grounded, bool crouched);
+
 };
 
 #endif

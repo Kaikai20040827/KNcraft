@@ -62,6 +62,7 @@ void Camera::processKeyboard(CameraMovement direction, float deltaTime)
     }
     if (direction == FORWARD)
     {
+
         movementSpeed = 3.5f;
         position += flatFront * velocity;
     }
@@ -77,7 +78,7 @@ void Camera::processKeyboard(CameraMovement direction, float deltaTime)
     }
     if (direction == RIGHT)
     {
-        movementSpeed = 3.5f;`
+        movementSpeed = 3.5f;
         position += right * velocity;
     }
     if (direction == JUMP)
@@ -158,4 +159,8 @@ void Camera::update(float deltaTime)
     }
     // reset crouch state each frame; app will set CROUCH when key pressed
     crouched = false;
+}
+
+void Camera::screenShake(bool grounded, bool crouched) {
+    
 }

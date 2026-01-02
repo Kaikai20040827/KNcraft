@@ -18,6 +18,7 @@ add_executable(KNCraft
     src/mesh.cpp
     src/window.cpp
     src/main.cpp
+    src/stb_image.cpp
 )
 
 find_package(OpenGL REQUIRED)
