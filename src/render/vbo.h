@@ -3,8 +3,8 @@
 
 #include <GL/glew.h>
 
-#include "chunk.h"
-#include "debug.h"
+#include "scene/chunk.h"
+#include "core/debug.h"
 
 #include <vector>
 
@@ -14,12 +14,12 @@ public:
     Vbo();
     ~Vbo();
 
-    void setData(const Chunk& chunk);
+    void setData(const Chunk &chunk);
     void bind();
 
 private:
-    unsigned int vbo;
-    std::vector<float> vertices;
+    unsigned int m_vbo;
+    std::vector<float> m_vertices;
 };
 
 #endif

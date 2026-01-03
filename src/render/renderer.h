@@ -5,23 +5,22 @@
 
 #include <iostream>
 #include <vector>
+#include <memory>
 
-#include "mesh.h"
-#include "shader.h"
-#include "camera.h"
+#include "render/mesh.h"
+#include "render/shader.h"
+#include "render/camera.h"
 
 class Renderer
 {
 public:
-    Renderer();
-    ~Renderer();
 
     void draw(const Camera &camera);
     void init();
 
 private:
-    std::vector<Mesh*> meshes;
-    Shader *shader;
+    std::vector<std::unique_ptr<Mesh>> m_meshes;
+    std::unique_ptr<Shader> m_shader;
 };
 
 #endif

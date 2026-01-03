@@ -10,17 +10,17 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "debug.h"
+#include "core/debug.h"
 
-enum CameraMovement
-{   
-    RUN_FORWARD,
-    FORWARD,
-    BACKWARD,
-    LEFT,
-    RIGHT,
-    JUMP,
-    CROUCH,
+enum class CameraMovement
+{
+    RunForward,
+    Forward,
+    Backward,
+    Left,
+    Right,
+    Jump,
+    Crouch,
 };
 
 class Camera
@@ -42,36 +42,35 @@ public:
     // per-frame physics/update (gravity, apply velocity)
     void update(float deltaTime);
 
-    glm::vec3 getPosition() const { return position; }
+    glm::vec3 getPosition() const { return m_position; }
 
-    glm::vec3 position;
-    glm::vec3 lookat;
-    glm::vec3 up;
-    glm::vec3 front;
-    glm::vec3 right;
+    glm::vec3 m_position;
+    glm::vec3 m_lookat;
+    glm::vec3 m_up;
+    glm::vec3 m_front;
+    glm::vec3 m_right;
 
-    float fov;
-    float aspect;
-    float near;
-    float far;
+    float m_fov;
+    float m_aspect;
+    float m_near;
+    float m_far;
 
-    float yaw;
-    float pitch;
-    float movementSpeed;
-    float mouseSensitivity;
+    float m_yaw;
+    float m_pitch;
+    float m_movementSpeed;
+    float m_mouseSensitivity;
 
     // physics
-    float jumpVelority;
-    float crouchVelority;
-    float accelerated;
-    bool grounded;
-    bool crouched;
-    float standHeight;
-    float crouchHeight;
+    float m_jumpVelority;
+    float m_crouchVelority;
+    float m_accelerated;
+    bool m_grounded;
+    bool m_crouched;
+    float m_standHeight;
+    float m_crouchHeight;
 
-private: 
+private:
     void screenShake(bool grounded, bool crouched);
-
 };
 
 #endif

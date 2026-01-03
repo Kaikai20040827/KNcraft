@@ -18,9 +18,13 @@
 #define DEBUG_BREAK()
 #endif
 
+#ifdef _DEBUG
 #define ASSERT(x) \
     if (!(x))     \
     DEBUG_BREAK()
+#else 
+#define ASSERT(x)
+#endif
 
 #ifdef _DEBUG
 #define GLCall(x)   \

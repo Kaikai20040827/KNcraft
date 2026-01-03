@@ -2,7 +2,8 @@
 #define VAO_H
 
 #include <GL/glew.h>
-#include <debug.h>
+
+#include "core/debug.h"
 
 class Vao
 {
@@ -14,7 +15,7 @@ public:
     void unbind();
 
 private:
-    unsigned int vao;
+    unsigned int m_vao;
 };
 
 #endif

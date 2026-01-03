@@ -3,8 +3,8 @@
 
 #include <GL/glew.h>
 
-#include "debug.h"
-#include "chunk.h"
+#include "core/debug.h"
+#include "scene/chunk.h"
 
 #include <vector>
 
@@ -14,12 +14,12 @@ public:
     Ibo();
     ~Ibo();
 
-    void setData(const Chunk& chunk);
+    void setData(const Chunk &chunk);
     void bind();
 
 private:
-    unsigned int ibo;
-    std::vector<unsigned int> indices;
+    unsigned int m_ibo;
+    std::vector<unsigned int> m_indices;
 };
 
 #endif

@@ -9,7 +9,7 @@
 
 #include <glm/glm.hpp>
 
-#include "debug.h"
+#include "core/debug.h"
 
 #include <vector>
 
@@ -25,12 +25,12 @@ public:
     void createChunk(float centerX, float CenterY, float centerZ);
 
 private:
-    float centerX;
-    float centerY;
-    float centerZ;
+    float m_centerX;
+    float m_centerY;
+    float m_centerZ;
 
-    int size;
-    std::vector<glm::vec3> coords;
+    int m_size;
+    std::vector<glm::vec3> m_coords;
 };
 
 #endif

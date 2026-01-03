@@ -1,8 +1,8 @@
-#include "vao.h"
+#include "render/vao.h"
 
 Vao::Vao()
 {
-    GLCall(glGenVertexArrays(1, &vao));
+    GLCall(glGenVertexArrays(1, &m_vao));
 }
 
 Vao::~Vao()
@@ -11,7 +11,7 @@ Vao::~Vao()
 
 void Vao::bind()
 {
-    GLCall(glBindVertexArray(vao));
+    GLCall(glBindVertexArray(m_vao));
 }
 
 void Vao::unbind()

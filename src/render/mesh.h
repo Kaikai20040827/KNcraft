@@ -3,11 +3,11 @@
 
 #define CHUNK_NUMBER 12 * 12
 
-#include "ibo.h"
-#include "vbo.h"
-#include "vao.h"
-#include "debug.h"
-#include "chunk.h"
+#include "render/ibo.h"
+#include "render/vbo.h"
+#include "render/vao.h"
+#include "core/debug.h"
+#include "scene/chunk.h"
 
 class Mesh
 {
@@ -21,11 +21,11 @@ public:
     void draw();
 
 private:
-    Chunk chunk;
+    Chunk m_chunk;
 
-    Vbo vbo;
-    Ibo ibo;
-    Vao vao;
+    Vbo m_vbo;
+    Ibo m_ibo;
+    Vao m_vao;
 };
 
 #endif

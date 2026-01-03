@@ -1,9 +1,9 @@
-#include "ibo.h"
+#include "render/ibo.h"
 
 Ibo::Ibo()
 {
     LOG("Generating IBO");
-    GLCall(glGenBuffers(1, &ibo));
+    GLCall(glGenBuffers(1, &m_ibo));
     LOG("Generating IBO done");
 
     bind();
@@ -16,15 +16,15 @@ Ibo::~Ibo()
 void Ibo::setData(const Chunk &chunk)
 {
     LOG("Setting index data");
-    indices = chunk.getIndices();
+    m_indices = chunk.getIndices();
     int coordCount = (CHUNK_LENGTH + 1) * (CHUNK_WIDTH + 1) * (CHUNK_HEIGHT + 1);
-    GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW));
+    GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_indices.size() * sizeof(unsigned int), m_indices.data(), GL_STATIC_DRAW));
     LOG("Setting index data done");
 }
 
 void Ibo::bind()
 {
     LOG("Binding IBO");
-    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo));
+    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo));
     LOG("Binding IBO done");
 }

@@ -1,5 +1,5 @@
-#include "app.h"
-#include "debug.h"
+#include "app/app.h"
+#include "core/debug.h"
 
 #include <iostream>
 #include <fstream>

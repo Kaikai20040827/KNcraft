@@ -1,9 +1,9 @@
-#include "chunk.h"
+#include "scene/chunk.h"
 
 Chunk::Chunk()
 {
     LOG("Initializing chunk size");
-    size = CHUNK_LENGTH * CHUNK_WIDTH * CHUNK_HEIGHT;
+    m_size = CHUNK_LENGTH * CHUNK_WIDTH * CHUNK_HEIGHT;
     LOG("Initializing done");
 }
 
@@ -14,9 +14,9 @@ Chunk::~Chunk()
 std::vector<float> Chunk::getVertices() const
 {
     std::vector<float> vertices;
-    vertices.reserve(coords.size() * 3);
+    vertices.reserve(m_coords.size() * 3);
 
-    for (const auto &v : coords)
+    for (const auto &v : m_coords)
     {
         vertices.push_back(v.x);
         vertices.push_back(v.y);
@@ -28,9 +28,9 @@ std::vector<float> Chunk::getVertices() const
 std::vector<unsigned int> Chunk::getIndices() const
 {
     std::vector<unsigned int> indices;
-    indices.reserve(coords.size());
+    indices.reserve(m_coords.size());
 
-    for (unsigned int i = 0; i < coords.size(); i++)
+    for (unsigned int i = 0; i < m_coords.size(); i++)
     {
         indices.push_back(i);
     }
@@ -40,10 +40,10 @@ std::vector<unsigned int> Chunk::getIndices() const
 void Chunk::createChunk(float centerX, float centerY, float centerZ)
 {
     LOG("Creating a chunk");
-    coords.clear();
-    coords.reserve((CHUNK_LENGTH + 1) *
-                   (CHUNK_WIDTH + 1) *
-                   (CHUNK_HEIGHT + 1));
+    m_coords.clear();
+    m_coords.reserve((CHUNK_LENGTH + 1) *
+                     (CHUNK_WIDTH + 1) *
+                     (CHUNK_HEIGHT + 1));
 
     for (int ix = 0; ix <= CHUNK_LENGTH; ix++)
         for (int iy = 0; iy <= CHUNK_WIDTH; iy++)
@@ -53,7 +53,7 @@ void Chunk::createChunk(float centerX, float centerY, float centerZ)
                 float y = centerY - 8.5f + iy * BLOCK_LENGTH;
                 float z = centerZ - 8.5f + iz * BLOCK_LENGTH;
 
-                coords.emplace_back(x, y, z);
+                m_coords.emplace_back(x, y, z);
             }
     LOG("Creating done");
 }

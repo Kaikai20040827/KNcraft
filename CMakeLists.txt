@@ -6,25 +6,20 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+file(GLOB_RECURSE SRC
+    src/*.cpp
+)
+
 add_executable(KNCraft
-    src/app.cpp
-    src/camera.cpp
-    src/chunk.cpp
-    src/ibo.cpp
-    src/vbo.cpp
-    src/vao.cpp
-    src/shader.cpp
-    src/renderer.cpp
-    src/mesh.cpp
-    src/window.cpp
-    src/main.cpp
-    src/stb_image.cpp
+    ${SRC}
 )
 
 find_package(OpenGL REQUIRED)
 
 target_include_directories(KNCraft PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/glfw/include
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/glew/include
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/glm
@@ -40,6 +35,7 @@ set(GLEW_LIB "${CMAKE_CURRENT_SOURCE_DIR}/libs/glew/lib/Release/x64/glew32s.lib"
 target_link_libraries(KNCraft PRIVATE
     ${GLFW_LIB}
     ${GLEW_LIB}
+
     opengl32
     gdi32
     user32
