@@ -18,8 +18,8 @@ public:
     void bind();
 
 private:
-    unsigned int m_vbo;
-    std::vector<float> m_vertices;
+    unsigned int m_Vbo;
+    std::vector<float> m_Vertices;
 };
 
 #endif

@@ -19,8 +19,8 @@ public:
     void init();
 
 private:
-    std::vector<std::unique_ptr<Mesh>> m_meshes;
-    std::unique_ptr<Shader> m_shader;
+    std::vector<std::unique_ptr<Mesh>> m_Meshes;
+    std::unique_ptr<Shader> m_Shader;
 };
 
 #endif

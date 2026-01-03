@@ -2,7 +2,7 @@
 
 Vao::Vao()
 {
-    GLCall(glGenVertexArrays(1, &m_vao));
+    GLCall(glGenVertexArrays(1, &m_Vao));
 }
 
 Vao::~Vao()
@@ -11,7 +11,7 @@ Vao::~Vao()
 
 void Vao::bind()
 {
-    GLCall(glBindVertexArray(m_vao));
+    GLCall(glBindVertexArray(m_Vao));
 }
 
 void Vao::unbind()

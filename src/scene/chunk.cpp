@@ -14,9 +14,9 @@ Chunk::~Chunk()
 std::vector<float> Chunk::getVertices() const
 {
     std::vector<float> vertices;
-    vertices.reserve(m_coords.size() * 3);
+    vertices.reserve(m_Coords.size() * 3);
 
-    for (const auto &v : m_coords)
+    for (const auto &v : m_Coords)
     {
         vertices.push_back(v.x);
         vertices.push_back(v.y);
@@ -28,9 +28,9 @@ std::vector<float> Chunk::getVertices() const
 std::vector<unsigned int> Chunk::getIndices() const
 {
     std::vector<unsigned int> indices;
-    indices.reserve(m_coords.size());
+    indices.reserve(m_Coords.size());
 
-    for (unsigned int i = 0; i < m_coords.size(); i++)
+    for (unsigned int i = 0; i < m_Coords.size(); i++)
     {
         indices.push_back(i);
     }
@@ -40,8 +40,8 @@ std::vector<unsigned int> Chunk::getIndices() const
 void Chunk::createChunk(float centerX, float centerY, float centerZ)
 {
     LOG("Creating a chunk");
-    m_coords.clear();
-    m_coords.reserve((CHUNK_LENGTH + 1) *
+    m_Coords.clear();
+    m_Coords.reserve((CHUNK_LENGTH + 1) *
                      (CHUNK_WIDTH + 1) *
                      (CHUNK_HEIGHT + 1));
 
@@ -53,7 +53,7 @@ void Chunk::createChunk(float centerX, float centerY, float centerZ)
                 float y = centerY - 8.5f + iy * BLOCK_LENGTH;
                 float z = centerZ - 8.5f + iz * BLOCK_LENGTH;
 
-                m_coords.emplace_back(x, y, z);
+                m_Coords.emplace_back(x, y, z);
             }
     LOG("Creating done");
 }

@@ -10,148 +10,148 @@ Camera::~Camera()
 
 void Camera::init()
 {
-    m_position = glm::vec3{0.f, 1.8f, 2.6f};
-    m_front = glm::vec3{0.f, 0.f, -1.f};
-    m_up = glm::vec3{0.f, 1.f, 0.f};
-    m_right = glm::normalize(glm::cross(m_front, m_up));
+    m_Position = glm::vec3{0.f, 1.8f, 2.6f};
+    m_Front = glm::vec3{0.f, 0.f, -1.f};
+    m_Up = glm::vec3{0.f, 1.f, 0.f};
+    m_Right = glm::normalize(glm::cross(m_Front, m_Up));
 
-    m_fov = glm::radians(45.f);
-    m_aspect = 1280.f / 800.f;
-    m_near = 0.1f;
-    m_far = 100.f;
+    m_Fov = glm::radians(45.f);
+    m_Aspect = 1280.f / 800.f;
+    m_Near = 0.1f;
+    m_Far = 100.f;
 
-    m_yaw = -90.f;
-    m_pitch = 0.f;
+    m_Yaw = -90.f;
+    m_Pitch = 0.f;
 
-    m_movementSpeed = 3.5f;
-    m_mouseSensitivity = 0.1f;
+    m_MovementSpeed = 3.5f;
+    m_MouseSensitivity = 0.1f;
 
-    m_jumpVelority = 0.f;
-    m_grounded = true;
-    m_accelerated = false;
-    m_crouched = false;
-    m_standHeight = 1.8f;
-    m_crouchHeight = 1.0f;
+    m_JumpVelority = 0.f;
+    m_Grounded = true;
+    m_Accelerated = false;
+    m_Crouched = false;
+    m_StandHeight = 1.8f;
+    m_CrouchHeight = 1.0f;
 }
 
 glm::mat4 Camera::getView() const
 {
-    return glm::lookAt(m_position, m_position + m_front, m_up);
+    return glm::lookAt(m_Position, m_Position + m_Front, m_Up);
 }
 
 glm::mat4 Camera::getProjection() const
 {
-    return glm::perspective(m_fov, m_aspect, m_near, m_far);
+    return glm::perspective(m_Fov, m_Aspect, m_Near, m_Far);
 }
 
 void Camera::setAspect(float a)
 {
-    m_aspect = a;
+    m_Aspect = a;
 }
 
 void Camera::processKeyboard(CameraMovement direction, float deltaTime)
 {
-    float m_Velocity = m_movementSpeed * deltaTime;
-    glm::vec3 flatFront = glm::normalize(glm::vec3(m_front.x, 0.0f, m_front.z));
+    float m_Velocity = m_MovementSpeed * deltaTime;
+    glm::vec3 flatFront = glm::normalize(glm::vec3(m_Front.x, 0.0f, m_Front.z));
     if (direction == CameraMovement::RunForward)
     {
-        m_movementSpeed = 5.5f;
-        m_position += flatFront * m_Velocity;
+        m_MovementSpeed = 5.5f;
+        m_Position += flatFront * m_Velocity;
     }
     if (direction == CameraMovement::Forward)
     {
-        m_movementSpeed = 3.5f;
-        m_position += flatFront * m_Velocity;
+        m_MovementSpeed = 3.5f;
+        m_Position += flatFront * m_Velocity;
     }
     if (direction == CameraMovement::Backward)
     {
-        m_movementSpeed = 3.5f;
-        m_position -= flatFront * m_Velocity;
+        m_MovementSpeed = 3.5f;
+        m_Position -= flatFront * m_Velocity;
     }
     if (direction == CameraMovement::Left)
     {
-        m_movementSpeed = 3.5f;
-        m_position -= m_right * m_Velocity;
+        m_MovementSpeed = 3.5f;
+        m_Position -= m_Right * m_Velocity;
     }
     if (direction == CameraMovement::Right)
     {
-        m_movementSpeed = 3.5f;
-        m_position += m_right * m_Velocity;
+        m_MovementSpeed = 3.5f;
+        m_Position += m_Right * m_Velocity;
     }
     if (direction == CameraMovement::Jump)
     {
-        if (m_grounded)
+        if (m_Grounded)
         {
-            m_jumpVelority = 5.0f; // jump impulse
-            m_grounded = false;
+            m_JumpVelority = 5.0f; // jump impulse
+            m_Grounded = false;
         }
     }
     if (direction == CameraMovement::Crouch)
     {
-        m_movementSpeed = 1.5f;
-        m_crouchVelority = 7.f;
-        m_crouched = true;
+        m_MovementSpeed = 1.5f;
+        m_CrouchVelority = 7.f;
+        m_Crouched = true;
     }
 }
 
 void Camera::processMouseMovement(float xoffset, float yoffset, bool constrainPitch)
 {
-    xoffset *= m_mouseSensitivity;
-    yoffset *= m_mouseSensitivity;
+    xoffset *= m_MouseSensitivity;
+    yoffset *= m_MouseSensitivity;
 
-    m_yaw += xoffset;
-    m_pitch += yoffset;
+    m_Yaw += xoffset;
+    m_Pitch += yoffset;
 
     if (constrainPitch)
     {
-        if (m_pitch > 89.0f)
-            m_pitch = 89.0f;
-        if (m_pitch < -89.0f)
-            m_pitch = -89.0f;
+        if (m_Pitch > 89.0f)
+            m_Pitch = 89.0f;
+        if (m_Pitch < -89.0f)
+            m_Pitch = -89.0f;
     }
 
     glm::vec3 f;
-    f.x = cos(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
-    f.y = sin(glm::radians(m_pitch));
-    f.z = sin(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
-    m_front = glm::normalize(f);
-    m_right = glm::normalize(glm::cross(m_front, m_up));
+    f.x = cos(glm::radians(m_Yaw)) * cos(glm::radians(m_Pitch));
+    f.y = sin(glm::radians(m_Pitch));
+    f.z = sin(glm::radians(m_Yaw)) * cos(glm::radians(m_Pitch));
+    m_Front = glm::normalize(f);
+    m_Right = glm::normalize(glm::cross(m_Front, m_Up));
 }
 
 void Camera::update(float deltaTime)
 {
     // apply gravity
-    if (!m_grounded)
+    if (!m_Grounded)
     {
-        m_jumpVelority -= GRAVITY * deltaTime;
-        m_position.y += m_jumpVelority * deltaTime;
-        if (m_position.y <= (m_crouched ? m_crouchHeight : m_standHeight))
+        m_JumpVelority -= GRAVITY * deltaTime;
+        m_Position.y += m_JumpVelority * deltaTime;
+        if (m_Position.y <= (m_Crouched ? m_CrouchHeight : m_StandHeight))
         {
-            m_position.y = (m_crouched ? m_crouchHeight : m_standHeight);
-            m_jumpVelority = 0.f;
-            m_grounded = true;
+            m_Position.y = (m_Crouched ? m_CrouchHeight : m_StandHeight);
+            m_JumpVelority = 0.f;
+            m_Grounded = true;
         }
     }
     else
     {
-        if (m_crouched)
+        if (m_Crouched)
         {
-            m_crouchVelority -= CROUCH_RESISTENCE * deltaTime;
-            m_position.y -= m_crouchVelority * deltaTime;
-            if (m_position.y <= m_crouchHeight)
+            m_CrouchVelority -= CROUCH_RESISTENCE * deltaTime;
+            m_Position.y -= m_CrouchVelority * deltaTime;
+            if (m_Position.y <= m_CrouchHeight)
             {
-                m_position.y = m_crouchHeight;
-                m_crouchVelority = 0.f;
-                m_grounded = true;
+                m_Position.y = m_CrouchHeight;
+                m_CrouchVelority = 0.f;
+                m_Grounded = true;
             }
         }
         else
         {
-            m_position.y = m_standHeight;
+            m_Position.y = m_StandHeight;
         }
     }
     // reset crouch state each frame; app will set CROUCH when key pressed
-    m_crouched = false;
+    m_Crouched = false;
 }
 
 void Camera::screenShake(bool grounded, bool crouched)

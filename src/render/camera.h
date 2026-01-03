@@ -42,32 +42,32 @@ public:
     // per-frame physics/update (gravity, apply velocity)
     void update(float deltaTime);
 
-    glm::vec3 getPosition() const { return m_position; }
+    glm::vec3 getPosition() const { return m_Position; }
 
-    glm::vec3 m_position;
-    glm::vec3 m_lookat;
-    glm::vec3 m_up;
-    glm::vec3 m_front;
-    glm::vec3 m_right;
+    glm::vec3 m_Position;
+    glm::vec3 m_Lookat;
+    glm::vec3 m_Up;
+    glm::vec3 m_Front;
+    glm::vec3 m_Right;
 
-    float m_fov;
-    float m_aspect;
-    float m_near;
-    float m_far;
+    float m_Fov;
+    float m_Aspect;
+    float m_Near;
+    float m_Far;
 
-    float m_yaw;
-    float m_pitch;
-    float m_movementSpeed;
-    float m_mouseSensitivity;
+    float m_Yaw;
+    float m_Pitch;
+    float m_MovementSpeed;
+    float m_MouseSensitivity;
 
     // physics
-    float m_jumpVelority;
-    float m_crouchVelority;
-    float m_accelerated;
-    bool m_grounded;
-    bool m_crouched;
-    float m_standHeight;
-    float m_crouchHeight;
+    float m_JumpVelority;
+    float m_CrouchVelority;
+    float m_Accelerated;
+    bool m_Grounded;
+    bool m_Crouched;
+    float m_StandHeight;
+    float m_CrouchHeight;
 
 private:
     void screenShake(bool grounded, bool crouched);

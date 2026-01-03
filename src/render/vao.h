@@ -15,7 +15,7 @@ public:
     void unbind();
 
 private:
-    unsigned int m_vao;
+    unsigned int m_Vao;
 };
 
 #endif

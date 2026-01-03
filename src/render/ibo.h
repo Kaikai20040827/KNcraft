@@ -18,8 +18,8 @@ public:
     void bind();
 
 private:
-    unsigned int m_ibo;
-    std::vector<unsigned int> m_indices;
+    unsigned int m_Ibo;
+    std::vector<unsigned int> m_Indices;
 };
 
 #endif

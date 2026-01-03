@@ -21,11 +21,11 @@ public:
     void draw();
 
 private:
-    Chunk m_chunk;
+    Chunk m_Chunk;
 
-    Vbo m_vbo;
-    Ibo m_ibo;
-    Vao m_vao;
+    Vbo m_Vbo;
+    Ibo m_Ibo;
+    Vao m_Vao;
 };
 
 #endif

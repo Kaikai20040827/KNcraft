@@ -25,12 +25,8 @@ public:
     void createChunk(float centerX, float CenterY, float centerZ);
 
 private:
-    float m_centerX;
-    float m_centerY;
-    float m_centerZ;
-
     int m_size;
-    std::vector<glm::vec3> m_coords;
+    std::vector<glm::vec3> m_Coords;
 };
 
 #endif
