@@ -3,7 +3,7 @@
 
 #include <GL/glew.h>
 
-#include "core/debug.h"
+#include "core/debug/debug.h"
 
 class Vao
 {

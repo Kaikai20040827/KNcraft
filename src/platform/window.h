@@ -7,7 +7,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "core/debug.h"
+#include "core/debug/debug.h"
 
 enum VideoMode
 {

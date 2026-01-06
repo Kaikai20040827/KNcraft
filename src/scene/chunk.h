@@ -9,7 +9,7 @@
 
 #include <glm/glm.hpp>
 
-#include "core/debug.h"
+#include "core/debug/debug.h"
 
 #include <vector>
 

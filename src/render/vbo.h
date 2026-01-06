@@ -4,7 +4,7 @@
 #include <GL/glew.h>
 
 #include "scene/chunk.h"
-#include "core/debug.h"
+#include "core/debug/debug.h"
 
 #include <vector>
 

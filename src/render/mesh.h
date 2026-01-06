@@ -6,7 +6,7 @@
 #include "render/ibo.h"
 #include "render/vbo.h"
 #include "render/vao.h"
-#include "core/debug.h"
+#include "core/debug/debug.h"
 #include "scene/chunk.h"
 
 class Mesh

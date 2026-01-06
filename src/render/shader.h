@@ -4,7 +4,7 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
-#include "core/debug.h"
+#include "core/debug/debug.h"
 
 #include <string>
 #include <unordered_map>

@@ -9,7 +9,7 @@
 
 #include "platform/window.h"
 #include "render/renderer.h"
-#include "core/debug.h"
+#include "core/debug/debug.h"
 #include "render/camera.h"
 
 class App
