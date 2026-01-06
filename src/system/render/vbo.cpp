@@ -1,4 +1,4 @@
-#include "render/vbo.h"
+#include "system/render/vbo.h"
 
 Vbo::Vbo()
 {

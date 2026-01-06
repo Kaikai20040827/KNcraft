@@ -1,4 +1,4 @@
-#include "app/app.h"
+#include "app.h"
 
 App::App(std::string name)
 {

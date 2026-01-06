@@ -7,9 +7,9 @@
 #include <vector>
 #include <memory>
 
-#include "render/mesh.h"
-#include "render/shader.h"
-#include "render/camera.h"
+#include "system/render/mesh.h"
+#include "system/render/shader.h"
+#include "system/render/camera.h"
 
 class Renderer
 {

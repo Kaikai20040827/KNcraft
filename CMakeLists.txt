@@ -32,6 +32,7 @@ add_definitions(-DGLEW_STATIC)
 set(GLFW_LIB "${CMAKE_CURRENT_SOURCE_DIR}/libs/glfw/lib-vc2022/glfw3.lib")
 set(GLEW_LIB "${CMAKE_CURRENT_SOURCE_DIR}/libs/glew/lib/Release/x64/glew32s.lib")
 
+
 target_link_libraries(KNCraft PRIVATE
     ${GLFW_LIB}
     ${GLEW_LIB}

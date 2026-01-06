@@ -3,9 +3,9 @@
 
 #define CHUNK_NUMBER 12 * 12
 
-#include "render/ibo.h"
-#include "render/vbo.h"
-#include "render/vao.h"
+#include "system/render/ibo.h"
+#include "system/render/vbo.h"
+#include "system/render/vao.h"
 #include "core/debug/debug.h"
 #include "scene/chunk.h"
 

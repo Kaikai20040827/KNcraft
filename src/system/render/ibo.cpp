@@ -1,4 +1,4 @@
-#include "render/ibo.h"
+#include "system/render/ibo.h"
 
 Ibo::Ibo()
 {

@@ -7,10 +7,10 @@
 #include <fstream>
 #include <iostream>
 
-#include "platform/window.h"
-#include "render/renderer.h"
+#include "system/window/window.h"
+#include "system/render/renderer.h"
 #include "core/debug/debug.h"
-#include "render/camera.h"
+#include "system/render/camera.h"
 
 class App
 {
